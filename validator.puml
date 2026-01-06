@@ -1,0 +1,7 @@
+@startuml
+class hexlet.code.Validator {
++ StringSchema string()
++ NumberSchema number()
+}
+
+@enduml

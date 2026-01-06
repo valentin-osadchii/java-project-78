@@ -1,0 +1,29 @@
+@startuml
+class hexlet.code.schemas.NumberSchema {
+- boolean required
+- boolean positive
+- int min
+- int max
++ NumberSchema required()
++ NumberSchema positive()
++ NumberSchema positive(int,int)
+}
+
+
+class hexlet.code.schemas.StringSchema {
+- boolean required
+- String substring
+- int minLength
++ StringSchema required()
++ StringSchema contains(String)
++ StringSchema minLength(int)
++ boolean isValid(String)
+}
+
+
+class hexlet.code.Validator {
++ StringSchema string()
++ NumberSchema number()
+}
+
+@enduml
