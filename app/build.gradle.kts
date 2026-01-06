@@ -41,5 +41,7 @@ sonar {
     properties {
         property("sonar.projectKey", "valentin-osadchii_java-project-78")
         property("sonar.organization", "valentin-osadchii")
+        property("sonar.host.url", "https://sonarcloud.io") //s
+
     }
 }
