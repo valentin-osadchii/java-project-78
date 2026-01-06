@@ -13,9 +13,9 @@ public class NumberSchema extends BaseSchema<Integer> {
     }
 
 
-    public NumberSchema range(int min, int max) {
-        this.min = min;
-        this.max = max;
+    public NumberSchema range(int minValue, int maxValue) {
+        this.min = minValue;
+        this.max = maxValue;
         return this;
     }
 
