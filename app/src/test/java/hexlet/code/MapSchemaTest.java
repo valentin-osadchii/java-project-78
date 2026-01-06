@@ -30,6 +30,7 @@ public class MapSchemaTest {
     public void testRequired() throws Exception {
         schema.required();
         assertFalse(schema.isValid(null));
+        assertTrue(schema.isValid(new HashMap<>()));
     }
 
     @Test
