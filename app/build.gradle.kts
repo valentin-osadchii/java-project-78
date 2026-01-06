@@ -7,19 +7,22 @@ plugins {
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
+val lombokVersion = "1.18.34"
+val junitBomVersion = "5.10.0"
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
+    testImplementation(platform("org.junit:junit-bom:$junitBomVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 
-    compileOnly("org.projectlombok:lombok:1.18.34")
-    annotationProcessor("org.projectlombok:lombok:1.18.34")
+    compileOnly("org.projectlombok:$lombokVersion")
+    annotationProcessor("org.projectlombok:$lombokVersion")
 
-    testCompileOnly("org.projectlombok:lombok:1.18.34")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.34")
+    testCompileOnly("org.projectlombok:$lombokVersion")
+    testAnnotationProcessor("org.projectlombok:$lombokVersion")
 
 }
 

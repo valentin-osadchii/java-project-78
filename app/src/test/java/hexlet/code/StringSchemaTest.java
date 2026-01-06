@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class StringSchemaTest {
+class StringSchemaTest {
 
     private StringSchema schema;
 
@@ -19,13 +19,13 @@ public class StringSchemaTest {
     }
 
     @Test
-    void testDefaultValidator() throws Exception {
+    void testDefaultValidator() {
         assertTrue(schema.isValid(""));
         assertTrue(schema.isValid(null));
     }
 
     @Test
-    void testRequired() throws Exception {
+    void testRequired() {
         schema.required();
 
         assertFalse(schema.isValid(null)); // false
@@ -36,7 +36,7 @@ public class StringSchemaTest {
 
 
     @Test
-    void testContains() throws Exception {
+    void testContains() {
         assertTrue(schema.contains("wh").isValid("what does the fox say")); // true
         assertTrue(schema.contains("what").isValid("what does the fox say")); // true
         assertFalse(schema.contains("whatthe").isValid("what does the fox say")); // false
@@ -44,7 +44,7 @@ public class StringSchemaTest {
     }
 
     @Test
-    void testMethodChaining() throws Exception {
+    void testMethodChaining() {
         assertTrue(schema.minLength(10).minLength(4).isValid("Hexlet")); // true
     }
 }

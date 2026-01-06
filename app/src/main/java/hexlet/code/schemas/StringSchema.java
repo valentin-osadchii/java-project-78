@@ -28,7 +28,7 @@ public class StringSchema extends BaseSchema<String> {
         return this;
     }
 
-
+    @Override
     public boolean isValid(Object value) {
 
         if (value == null) {
