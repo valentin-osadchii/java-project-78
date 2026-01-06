@@ -20,10 +20,18 @@ public class NumberSchema extends BaseSchema<Integer> {
     }
 
     @Override
-    public boolean isValid(Integer value) {
-        if (value == null) {
+    public boolean isValid(Object objectValue) {
+
+        if (objectValue == null) {
             return !required;
         }
+
+        if (!(objectValue instanceof Integer)) {
+            return false;
+        }
+
+        Integer value = (Integer) objectValue;
+
 
         if (positive && value <= 0) {
             return false;

@@ -1,29 +1,49 @@
 @startuml
+abstract class hexlet.code.schemas.BaseSchema {
+# boolean required
++ BaseSchema<T> required()
++ {abstract}boolean isValid(Object)
+}
+
+
 class hexlet.code.schemas.NumberSchema {
-- boolean required
 - boolean positive
-- int min
-- int max
-+ NumberSchema required()
+- Integer min
+- Integer max
 + NumberSchema positive()
-+ NumberSchema positive(int,int)
++ NumberSchema range(int,int)
++ boolean isValid(Object)
 }
 
 
 class hexlet.code.schemas.StringSchema {
-- boolean required
 - String substring
 - int minLength
 + StringSchema required()
 + StringSchema contains(String)
 + StringSchema minLength(int)
-+ boolean isValid(String)
++ boolean isValid(Object)
 }
 
 
 class hexlet.code.Validator {
 + StringSchema string()
 + NumberSchema number()
++ MapSchema map()
 }
 
+class hexlet.code.schemas.MapSchema {
+- Integer sizeOfMap
+- Map<String,BaseSchema<?>> shapeSchemas
++ MapSchema sizeof(int)
++ boolean isValid(Object)
++ MapSchema shape(Map<String,? extends BaseSchema<?>>)
+}
+
+
+
+
+hexlet.code.schemas.BaseSchema <|-- hexlet.code.schemas.NumberSchema
+hexlet.code.schemas.BaseSchema <|-- hexlet.code.schemas.StringSchema
+hexlet.code.schemas.BaseSchema <|-- hexlet.code.schemas.MapSchema
 @enduml

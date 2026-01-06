@@ -8,5 +8,5 @@ public abstract class BaseSchema<T> {
         return this;
     }
 
-    public abstract boolean isValid(T value);
+    public abstract boolean isValid(Object value);
 }

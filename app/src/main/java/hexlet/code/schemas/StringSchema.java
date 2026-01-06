@@ -29,11 +29,18 @@ public class StringSchema extends BaseSchema<String> {
     }
 
 
-    public boolean isValid(String s) {
+    public boolean isValid(Object value) {
 
-        if (s == null) {
-            return !required; // если required = true → false, иначе → true
+        if (value == null) {
+            return !required;
         }
+
+        if (!(value instanceof String)) {
+            return false;
+        }
+
+        String s = (String) value;
+
 
         if (s.isEmpty() && required) {
             return false;
