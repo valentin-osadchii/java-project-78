@@ -18,11 +18,11 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:$junitBomVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 
-    compileOnly("org.projectlombok:$lombokVersion")
-    annotationProcessor("org.projectlombok:$lombokVersion")
+    compileOnly("org.projectlombok:lombok:$lombokVersion")
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
 
-    testCompileOnly("org.projectlombok:$lombokVersion")
-    testAnnotationProcessor("org.projectlombok:$lombokVersion")
+    testCompileOnly("org.projectlombok:lombok:$lombokVersion")
+    testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
 
 }
 
