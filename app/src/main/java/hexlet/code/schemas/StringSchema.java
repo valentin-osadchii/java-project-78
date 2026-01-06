@@ -3,13 +3,13 @@ import lombok.AllArgsConstructor;
 
 
 @AllArgsConstructor
-public class StringSchema{
+public class StringSchema {
 
     private boolean required;
     private String substring;
     private int minLength;
 
-    public StringSchema () {
+    public StringSchema() {
         this.required = false;
         this.minLength = 0;
     }
@@ -19,13 +19,13 @@ public class StringSchema{
         return this;
     }
 
-    public StringSchema contains(String substring) {
-        this.substring = substring;
+    public StringSchema contains(String s) {
+        this.substring = s;
         return this;
     }
 
-    public StringSchema minLength(int minLength) {
-        this.minLength = minLength;
+    public StringSchema minLength(int length) {
+        this.minLength = length;
         return this;
     }
 

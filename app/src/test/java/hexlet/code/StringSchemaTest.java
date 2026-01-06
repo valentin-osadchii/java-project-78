@@ -5,7 +5,8 @@ import hexlet.code.schemas.StringSchema;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StringSchemaTest {
 
@@ -27,18 +28,18 @@ public class StringSchemaTest {
     void testRequired() throws Exception {
         schema.required();
 
-        assertFalse(schema.isValid(null));// false
-        assertFalse(schema.isValid(""));// false
-        assertTrue(schema.isValid("what does the fox say"));// true
+        assertFalse(schema.isValid(null)); // false
+        assertFalse(schema.isValid("")); // false
+        assertTrue(schema.isValid("what does the fox say")); // true
         assertTrue(schema.isValid("hexlet")); // true
     }
 
 
     @Test
     void testContains() throws Exception {
-        assertTrue(schema.contains("wh").isValid("what does the fox say"));// true
-        assertTrue(schema.contains("what").isValid("what does the fox say"));// true
-        assertFalse(schema.contains("whatthe").isValid("what does the fox say"));// false
+        assertTrue(schema.contains("wh").isValid("what does the fox say")); // true
+        assertTrue(schema.contains("what").isValid("what does the fox say")); // true
+        assertFalse(schema.contains("whatthe").isValid("what does the fox say")); // false
         assertFalse(schema.isValid("what does the fox say")); // false
     }
 
