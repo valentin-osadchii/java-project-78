@@ -41,10 +41,6 @@ public class NumberSchema extends BaseSchema<Integer> {
             return false;
         }
 
-        if (max != null && value > max) {
-            return false;
-        }
-
-        return true;
+        return max == null || value <= max;
     }
 }

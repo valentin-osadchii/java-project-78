@@ -13,6 +13,7 @@ public class StringSchema extends BaseSchema<String> {
         this.minLength = 0;
     }
 
+    @Override
     public StringSchema required() {
         this.required = true;
         return this;
@@ -50,11 +51,7 @@ public class StringSchema extends BaseSchema<String> {
             return false;
         }
 
-        if (substring != null && !s.contains(substring)) {
-            return false;
-        }
-
-        return true;
+        return substring == null || s.contains(substring);
     }
 
 }

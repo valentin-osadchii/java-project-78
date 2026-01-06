@@ -22,26 +22,26 @@ class MapSchemaTest {
     }
 
     @Test
-    public void testDefaultSchema() throws Exception {
+    void testDefaultSchema() {
         assertTrue(schema.isValid(null));
     }
 
     @Test
-    public void testRequired() throws Exception {
+    void testRequired() {
         schema.required();
         assertFalse(schema.isValid(null));
         assertTrue(schema.isValid(new HashMap<>()));
     }
 
     @Test
-    public void testSimpleData() throws Exception {
+    void testSimpleData() {
         var data = new HashMap<String, String>();
         data.put("key1", "value1");
         assertTrue(schema.isValid(data)); // true
     }
 
     @Test
-    public void testMapSize() throws Exception {
+    void testMapSize() {
         schema.sizeof(2);
 
         var data = new HashMap<String, String>();
