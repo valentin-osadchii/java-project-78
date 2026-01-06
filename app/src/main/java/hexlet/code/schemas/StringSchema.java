@@ -3,7 +3,7 @@ import lombok.AllArgsConstructor;
 
 
 @AllArgsConstructor
-public class StringSchema extends BaseSchema<String> {
+public final class StringSchema extends BaseSchema<String> {
 
     private String substring;
     private int minLength;
