@@ -2,6 +2,7 @@ plugins {
     id("java")
     id("checkstyle")
     id("org.sonarqube") version "7.2.2.6593"
+    id("jacoco")
 }
 
 group = "hexlet.code"
@@ -37,6 +38,15 @@ tasks.build {
 
 tasks.test {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport) // Для генерации отчета о покрытии
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required.set(true) // SonarQube требует XML отчет
+        html.required.set(true)
+    }
 }
 
 
