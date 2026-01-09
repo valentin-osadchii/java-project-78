@@ -1,5 +1,9 @@
 package hexlet.code.schemas;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /**
  * Abstract base class for all validation schemas.
  * Provides common functionality such as the 'required' flag.
@@ -7,24 +11,25 @@ package hexlet.code.schemas;
  * @param <T> the type of value this schema validates
  */
 public abstract class BaseSchema<T> {
-    protected boolean required = false;
 
-    /**
-     * Marks the schema as required (null values are not allowed).
-     * Returns this schema for method chaining.
-     *
-     * @return this instance
-     */
+    protected Map<String, Predicate<T>> checks = new LinkedHashMap<>();
+
+    protected void addCheck(String name, Predicate<T> predicate) {
+        checks.put(name, predicate);
+    }
+
+    public final boolean isValid(T value) {
+        for (Predicate<T> check : checks.values()) {
+            if (!check.test(value)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public BaseSchema<T> required() {
-        this.required = true;
+        addCheck("required", value -> value != null);
         return this;
     }
 
-    /**
-     * Validates the given value against the schema rules.
-     *
-     * @param value the value to validate (may be null)
-     * @return true if valid, false otherwise
-     */
-    public abstract boolean isValid(Object value);
 }

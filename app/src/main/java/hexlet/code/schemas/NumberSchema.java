@@ -2,45 +2,14 @@ package hexlet.code.schemas;
 
 public final class NumberSchema extends BaseSchema<Integer> {
 
-    private boolean positive;
-    private Integer min = null;
-    private Integer max = null;
-
-
     public NumberSchema positive() {
-        this.positive = true;
+        addCheck("positive", value -> (value == null || value > 0));
         return this;
     }
-
 
     public NumberSchema range(int minValue, int maxValue) {
-        this.min = minValue;
-        this.max = maxValue;
+        addCheck("range", value -> (value >= minValue && value <= maxValue));
         return this;
     }
 
-    @Override
-    public boolean isValid(Object objectValue) {
-
-        if (objectValue == null) {
-            return !required;
-        }
-
-        if (!(objectValue instanceof Integer)) {
-            return false;
-        }
-
-        Integer value = (Integer) objectValue;
-
-
-        if (positive && value <= 0) {
-            return false;
-        }
-
-        if (min != null && value < min) {
-            return false;
-        }
-
-        return max == null || value <= max;
-    }
 }
