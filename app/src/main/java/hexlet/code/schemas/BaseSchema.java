@@ -14,6 +14,13 @@ public abstract class BaseSchema<T> {
 
     protected Map<String, Predicate<T>> checks = new LinkedHashMap<>();
 
+
+    /**
+     * Adds custom check to an ordered list of cheks (as Predicates)
+     *
+     * @param name
+     * @param predicate
+     */
     protected void addCheck(String name, Predicate<T> predicate) {
         checks.put(name, predicate);
     }
