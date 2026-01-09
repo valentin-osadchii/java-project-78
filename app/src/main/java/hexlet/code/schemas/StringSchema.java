@@ -1,8 +1,5 @@
 package hexlet.code.schemas;
-import lombok.AllArgsConstructor;
 
-
-@AllArgsConstructor
 public final class StringSchema extends BaseSchema<String> {
 
     @Override
