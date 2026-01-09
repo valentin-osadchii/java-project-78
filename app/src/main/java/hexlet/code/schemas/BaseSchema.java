@@ -16,10 +16,10 @@ public abstract class BaseSchema<T> {
 
 
     /**
-     * Adds custom check to an ordered list of cheks (as Predicates)
+     * Adds custom check to an ordered list of cheks (as Predicates).
      *
-     * @param name
-     * @param predicate
+     * @param name name of check
+     * @param predicate a predicate that checks is provided value is valid
      */
     protected void addCheck(String name, Predicate<T> predicate) {
         checks.put(name, predicate);
