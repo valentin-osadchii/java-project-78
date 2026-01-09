@@ -34,6 +34,12 @@ public abstract class BaseSchema<T> {
         return true;
     }
 
+    /**
+     * Adds a check that a value is not null (default behaviour).
+     * Can be overridden to check if a value is not empty or
+     * implement other type-specific checks
+     *
+     */
     public BaseSchema<T> required() {
         addCheck("required", value -> value != null);
         return this;
