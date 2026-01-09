@@ -39,6 +39,7 @@ public abstract class BaseSchema<T> {
      * Can be overridden to check if a value is not empty or
      * implement other type-specific checks
      *
+     * @return validation schema instance (self)
      */
     public BaseSchema<T> required() {
         addCheck("required", value -> value != null);
